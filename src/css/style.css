@@ -1,0 +1,74 @@
+/* ? -------  Trouble shoot checking section --------- */
+
+/* * {
+  background-color: rgb(0 100 0 / 0.1);
+} */
+
+/* *--------------------- Reset ---------------------* */
+
+*,
+*::after,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary-color);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+input {
+  color: var(--color-primary-color);
+}
+
+.disableScroll {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.--hidden {
+  display: none;
+}
+
+/* *--------------------- Root ---------------------* */
+
+:root {
+  --color-primary-color: #471515;
+  --color-primary-button: #ff4c4c;
+  --color-secondary-button: #ff4c4c;
+
+  --color-background: #fff;
+}
+
+/* *------------------ Typography -------------------* */
+
+body {
+  font-size: 62.5%;
+  /* 1rem = 10px */
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+input,
+a,
+button {
+  font-size: 1.6rem;
+}
