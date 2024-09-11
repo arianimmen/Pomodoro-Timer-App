@@ -46,6 +46,8 @@ input {
   --color-secondary-button: #ffe4e4;
 
   --color-background: #fff;
+
+  --color-shadow: #bcbaba;
 }
 
 /* * -------------------  Main  ------------------------* */
@@ -196,4 +198,59 @@ body {
     width: 18.9px;
     height: 4.9px;
   }
+}
+/* ------------------------- Setting -------------------------- */
+.setting {
+  width: 290px;
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-background);
+  border-radius: 24px;
+  box-shadow: 0 0 20px var(--color-shadow);
+}
+
+.setting__darkMode {
+  margin: 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting__header {
+  margin: 10px 0px 30px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting__header svg {
+  width: 11px;
+  height: 11px;
+}
+
+.setting input {
+  width: 30px;
+}
+.setting__fileds {
+  margin: 20px 0px;
+  width: 100%;
+}
+
+.setting__fileds form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting__Statistics {
+  display: flex;
+  width: 100%;
+}
+
+.setting__Statistics svg {
+  margin-right: 15px;
+  width: 20px;
+  height: 18px;
 }
