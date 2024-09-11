@@ -56,19 +56,40 @@ body {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 24rem;
 }
 
 h2 {
-  font-size: 2.4rem;
+  font-size: 1.6rem;
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: 8rem;
 }
 
 input,
 a,
 button {
-  font-size: 1.6rem;
+  font-size: 16rem;
+}
+
+/* * -------------------  Main  ------------------------* */
+.main {
+  margin-top: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__controls{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
 }
