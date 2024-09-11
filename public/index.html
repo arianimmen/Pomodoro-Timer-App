@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../src/css/font.css" />
   </head>
   <body>
-    <!------------------------ Main ----------------------------->
+    <!---------------------------- Main ------------------------------->
     <section class="main">
       <div class="main__mode">
         <div>
@@ -41,8 +41,8 @@
       </div>
     </section>
 
-    <!------------------------ Setting Modal ----------------------------->
-    <section class="setting">
+    <!----------------------- Setting Modal --------------------------->
+    <section class="setting --hidden-setting">
       <div class="setting__header">
         <p>Setting</p>
         <svg class="icon">
@@ -90,6 +90,71 @@
           <use xlink:href="../assets/images/sprite.svg#static"></use>
         </svg>
         <p>Statistics</p>
+      </div>
+    </section>
+    <!---------------------  Statistics Modal ------------------------->
+    <section class="statistics-modal --hidden-statistics">
+      <div class="statistics-modal__header">
+        <h1>Statistics</h1>
+        <svg class="icon">
+          <use xlink:href="../assets/images/sprite.svg#cancel"></use>
+        </svg>
+      </div>
+      <div class="statistics">
+        <div class="statistics__charts">
+          <div class="statistics__monday">
+            <div class="statistics__monday__bar"></div>
+          </div>
+          <p>M</p>
+        </div>
+
+        <div class="statistics__charts">
+          <div class="statistics__tuesday">
+            <div class="statistics__tuesday__bar"></div>
+          </div>
+          <p>T</p>
+        </div>
+
+        <div class="statistics__charts">
+          <div class="statistics__wednesday">
+            <div class="statistics__wednesday__bar"></div>
+          </div>
+          <p>W</p>
+        </div>
+
+        <div class="statistics__charts">
+          <div class="statistics__thursday">
+            <div class="statistics__thursday__bar"></div>
+          </div>
+          <p>T</p>
+        </div>
+
+        <div class="statistics__charts">
+          <div class="statistics__friday">
+            <div class="statistics__friday__bar"></div>
+          </div>
+          <p>F</p>
+        </div>
+
+        <div class="statistics__charts">
+          <div class="statistics__saturday">
+            <div class="statistics__saturday__bar"></div>
+          </div>
+          <p>S</p>
+        </div>
+
+        <div class="statistics__charts">
+          <div class="statistics__sunday">
+            <div class="statistics__sunday__bar"></div>
+          </div>
+          <p>S</p>
+        </div>
+      </div>
+      <div class="statistics-modal__info">
+        <h2 class="statistics-modal__info__total">Total:</h2>
+        <h2 class="statistics-modal__info__perDay">
+          Daily Average Focus Time:
+        </h2>
       </div>
     </section>
   </body>
