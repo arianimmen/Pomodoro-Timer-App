@@ -42,7 +42,7 @@ input {
 
 :root {
   --color-primary-color: #471515;
-  --color-primary-button: #FF8080;
+  --color-primary-button: #ff8080;
   --color-secondary-button: #ffe4e4;
 
   --color-background: #fff;
@@ -99,7 +99,7 @@ body {
 
 .main__timer p {
   line-height: 210px;
-  font-size: 256px;
+  font-size: 230px;
 }
 
 .main__controls {
@@ -117,7 +117,7 @@ body {
   border-radius: 24px;
 }
 
-.main__controls__start{
+.main__controls__start {
   cursor: pointer;
   margin: 0px 16px;
   padding: 35px 55px;
@@ -138,6 +138,62 @@ body {
 .main__controls__setting svg {
   width: 27px;
   height: 7px;
+}
 
+@media screen and (max-width: 1024px) {
+  .main__mode {
+    border-radius: 21px;
+    padding: 6.3px 11.2px;
+    border: 1.4px solid var(--color-primary-color);
+    width: 95.2px;
+  }
 
+  .main__mode .icon {
+    width: 21.7px;
+    height: 18.2px;
+  }
+
+  .main__mode__text {
+    font-size: 16.8px;
+  }
+
+  .main__timer {
+    margin: 30.1px 0px 34.3px 0px;
+  }
+
+  .main__timer p {
+    line-height: 147px;
+    font-size: 161px;
+  }
+
+  .main__controls {
+    width: 224.7px;
+  }
+
+  .main__controls__setting,
+  .main__controls__next {
+    padding: 21px 18.2px;
+    border-radius: 16.8px;
+  }
+
+  .main__controls__start {
+    margin: 0px 11.2px;
+    padding: 24.5px 38.5px;
+    border-radius: 22.4px;
+  }
+
+  .main__controls__start svg {
+    width: 15.4px;
+    height: 18.9px;
+  }
+
+  .main__controls__next svg {
+    width: 20.3px;
+    height: 13.3px;
+  }
+
+  .main__controls__setting svg {
+    width: 18.9px;
+    height: 4.9px;
+  }
 }
