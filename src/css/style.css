@@ -34,8 +34,15 @@ input {
   overflow: hidden;
 }
 
-.--hidden {
-  display: none;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* *--------------------- Root ---------------------* */
@@ -48,6 +55,8 @@ input {
   --color-background: #fff;
 
   --color-shadow: #bcbaba;
+
+  --color-toggle-background: #c2c2c2;
 }
 
 /* * -------------------  Main  ------------------------* */
@@ -62,6 +71,7 @@ body {
 }
 
 .main {
+  padding: 3rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -142,7 +152,7 @@ body {
   height: 7px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .main__mode {
     border-radius: 21px;
     padding: 6.3px 11.2px;
@@ -201,7 +211,7 @@ body {
 }
 /* ------------------------- Setting -------------------------- */
 .setting {
-  width: 290px;
+  width: 280px;
   padding: 20px;
   position: absolute;
   display: flex;
@@ -227,13 +237,45 @@ body {
 }
 
 .setting__header svg {
-  width: 11px;
-  height: 11px;
+  cursor: pointer;
+  padding: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.setting__darkMode__Toggle {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  cursor: pointer;
+  width: 30px;
+  height: 15px;
+  border-radius: 25px;
+
+  background-color: var(--color-toggle-background);
+}
+
+.setting__darkMode__Toggle__inner {
+  margin: 2px;
+  width: 13px;
+  height: 13px;
+  border-radius: 100%;
+  background-color: var(--color-background);
+}
+
+.setting__darkMode__Toggle:hover {
+  .setting__darkMode__Toggle__inner {
+    margin-left: auto;
+  }
 }
 
 .setting input {
   width: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--color-shadow);
 }
+
 .setting__fileds {
   margin: 20px 0px;
   width: 100%;
@@ -242,6 +284,7 @@ body {
 .setting__fileds form {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .setting__Statistics {
@@ -253,4 +296,59 @@ body {
   margin-right: 15px;
   width: 20px;
   height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .setting {
+    width: 400px;
+    padding: 26px;
+    border-radius: 31.2px;
+    box-shadow: 0 0 26px var(--color-shadow);
+  }
+
+  .setting__darkMode {
+    margin: 13px 0px;
+  }
+
+  .setting__header {
+    margin: 13px 0px 39px 0px;
+  }
+
+  .setting__header svg {
+    padding: 3.9px;
+    width: 20.8px;
+    height: 20.8px;
+  }
+
+  .setting__darkMode__Toggle {
+    width: 39px;
+    height: 20px;
+    border-radius: 32.5px;
+  }
+
+  .setting__darkMode__Toggle__inner {
+    margin: 3px;
+    width: 17px;
+    height: 17px;
+  }
+
+  .setting input {
+    width: 39px;
+    padding: 6.5px;
+    border-radius: 6.5px;
+  }
+
+  .setting__fileds {
+    margin: 26px 0px;
+  }
+
+  .setting__Statistics svg {
+    margin-right: 19.5px;
+    width: 26px;
+    height: 23.4px;
+  }
+}
+
+.--hidden-setting {
+  display: none;
 }
