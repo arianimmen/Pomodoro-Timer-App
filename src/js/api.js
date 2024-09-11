@@ -5,11 +5,11 @@ const defaultSetting = [
   },
   {
     mode: "shortRest",
-    time: 300,
+    time: 5,
   },
   {
     mode: "longRest",
-    time: 900,
+    time: 6,
   },
 ];
 

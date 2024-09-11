@@ -9,6 +9,9 @@ const settingBtn = document.querySelector(".main__controls__setting");
 const timerMin = document.querySelector(".main__timer__min");
 const timerSec = document.querySelector(".main__timer__sec");
 
+// ------------------  Selecting the Play/Pause Icon  -------------------
+const playIcon = document.querySelector(".main__controls__start__icon");
+
 // -------------------- Default Globals Values -----------------------
 let totalTime = 0;
 let isActive = false;
@@ -26,12 +29,24 @@ class Timer {
   startCounter() {
     isActive = !isActive; // Toggling the active mode
 
+    Timer.changePlayIcon(); // Changing the Play/Pause icon with the help of isActive
+
     if (isActive) {
       intervalRefrence = setInterval(Timer.timerLogic, 1000); // Start the count
     } else {
       clearInterval(intervalRefrence); // Stop the count
     }
   }
+
+  // Change the Play/Stop icon based on the active status
+  static changePlayIcon() {
+    if (isActive) {
+      playIcon.setAttribute("xlink:href", "../assets/images/sprite.svg#pause");
+    } else {
+      playIcon.setAttribute("xlink:href", "../assets/images/sprite.svg#start");
+    }
+  }
+
   // This method will do the counting down tasks
   static timerLogic() {
     // Checking if the time is up
@@ -71,6 +86,7 @@ class Timer {
     }
   }
 
+  // ------------------ Different Modes Logic ---------------------------
   static changeToFocusMode() {
     Timer.setDefaultValues();
   }
@@ -79,11 +95,18 @@ class Timer {
     Timer.setDefaultValues();
   }
 
+  static changeToLongBreak() {
+    Timer.setDefaultValues();
+  }
+
   // Reseting to default values and adjust the time value with the help of the tracker
   static setDefaultValues() {
     isActive = false;
-    clearInterval(intervalRefrence); // Clearing our interval counter
     totalTime = allModes[tracker].time; // Setting the right time
+
+    clearInterval(intervalRefrence); // Clearing our interval counter
+
+    Timer.changePlayIcon(); // Changing the Play/Stop Icon
     Timer.updateTheTimerInHtml(); // Update the html time
   }
 
