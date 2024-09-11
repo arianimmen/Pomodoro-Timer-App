@@ -1,9 +1,3 @@
-// todo:
-// 1- Add event listener to the media controls
-// 2- control the timer
-// 3- adding three modes
-// 4- changing the focus modes
-
 import Storage from "./api.js";
 
 // -------------------- Selecting Media Controls ------------------------
@@ -15,11 +9,12 @@ const settingBtn = document.querySelector(".main__controls__setting");
 const timerMin = document.querySelector(".main__timer__min");
 const timerSec = document.querySelector(".main__timer__sec");
 
+// -------------------- Default Globals Values -----------------------
 let totalTime = 0;
 let isActive = false;
 let intervalRefrence = 0;
-const allModes = Storage.getSetting();
 let tracker = 0;
+const allModes = Storage.getSetting();
 
 class Timer {
   constructor() {
