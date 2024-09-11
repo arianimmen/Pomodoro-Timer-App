@@ -42,40 +42,24 @@ input {
 
 :root {
   --color-primary-color: #471515;
-  --color-primary-button: #ff4c4c;
-  --color-secondary-button: #ff4c4c;
+  --color-primary-button: #FF8080;
+  --color-secondary-button: #ffe4e4;
 
   --color-background: #fff;
 }
 
-/* *------------------ Typography -------------------* */
-
-body {
-  font-size: 62.5%;
-  /* 1rem = 10px */
-}
-
-h1 {
-  font-size: 24rem;
-}
-
-h2 {
-  font-size: 1.6rem;
-}
-
-p {
-  font-size: 8rem;
-}
-
-input,
-a,
-button {
-  font-size: 16rem;
-}
-
 /* * -------------------  Main  ------------------------* */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .main {
-  margin-top: 20vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -83,13 +67,77 @@ button {
   justify-content: center;
 }
 
-.main__controls{
-  width: 100%;
+.main__mode {
   display: flex;
+  align-items: center;
+  background: var(--color-secondary-button);
+  border-radius: 30px;
+  padding: 9px 16px;
+  border: 2px solid var(--color-primary-color);
+  width: 136px;
   justify-content: space-between;
 }
 
-.icon{
-  width: 20px;
-  height: 20px;
+.main__mode .icon {
+  width: 31px;
+  height: 26px;
+}
+
+.main__mode__text {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.main__timer {
+  margin: 43px 0px 49px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 0;
+  row-gap: 0;
+}
+
+.main__timer p {
+  line-height: 210px;
+  font-size: 256px;
+}
+
+.main__controls {
+  width: 321px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__controls__setting,
+.main__controls__next {
+  cursor: pointer;
+  padding: 30px 26px;
+  background-color: var(--color-secondary-button);
+  border-radius: 24px;
+}
+
+.main__controls__start{
+  cursor: pointer;
+  margin: 0px 16px;
+  padding: 35px 55px;
+  background-color: var(--color-primary-button);
+  border-radius: 32px;
+}
+
+.main__controls__start svg {
+  width: 22px;
+  height: 27px;
+}
+
+.main__controls__next svg {
+  width: 29px;
+  height: 19px;
+}
+
+.main__controls__setting svg {
+  width: 27px;
+  height: 7px;
+
+
 }
