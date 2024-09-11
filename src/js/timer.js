@@ -1,4 +1,5 @@
 import Storage from "./api.js";
+import ThemeChange from "./uiThemeChange.js";
 
 // -------------------- Selecting Media Controls ------------------------
 const startBtn = document.querySelector(".main__controls__start");
@@ -15,8 +16,8 @@ const playIcon = document.querySelector(".main__controls__start__icon");
 // -------------------- Default Globals Values -----------------------
 let totalTime = 0;
 let isActive = false;
-let intervalRefrence = 0;
-let tracker = 0;
+let intervalReference = 0;
+let currentModeIndex = 0;
 const allModes = Storage.getSetting();
 
 class Timer {
@@ -32,9 +33,9 @@ class Timer {
     Timer.changePlayIcon(); // Changing the Play/Pause icon with the help of isActive
 
     if (isActive) {
-      intervalRefrence = setInterval(Timer.timerLogic, 1000); // Start the count
+      intervalReference = setInterval(Timer.timerLogic, 1000); // Start the count
     } else {
-      clearInterval(intervalRefrence); // Stop the count
+      clearInterval(intervalReference); // Stop the count
     }
   }
 
@@ -65,8 +66,8 @@ class Timer {
 
   // This method will find out which mode should play at the moment
   static nextMode() {
-    tracker += 1;
-    switch (tracker) {
+    currentModeIndex += 1;
+    switch (currentModeIndex) {
       case 0:
         Timer.changeToFocusMode();
         break;
@@ -80,7 +81,7 @@ class Timer {
         break;
 
       default:
-        tracker = 0;
+        currentModeIndex = 0;
         Timer.changeToFocusMode();
         break;
     }
@@ -93,18 +94,19 @@ class Timer {
 
   static changeToShortBreak() {
     Timer.setDefaultValues();
+    ThemeChange.setGreenTheme();
   }
 
   static changeToLongBreak() {
     Timer.setDefaultValues();
   }
 
-  // Reseting to default values and adjust the time value with the help of the tracker
+  // Reseting to default values and adjust the time value with the help of the currentModeIndex
   static setDefaultValues() {
     isActive = false;
-    totalTime = allModes[tracker].time; // Setting the right time
+    totalTime = allModes[currentModeIndex].time; // Setting the right time
 
-    clearInterval(intervalRefrence); // Clearing our interval counter
+    clearInterval(intervalReference); // Clearing our interval counter
 
     Timer.changePlayIcon(); // Changing the Play/Stop Icon
     Timer.updateTheTimerInHtml(); // Update the html time
