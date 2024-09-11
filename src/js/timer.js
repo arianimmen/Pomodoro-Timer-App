@@ -29,21 +29,22 @@ class Timer {
   }
 
   startCounter() {
-    isActive = !isActive;
-    if (isActive) {
-      intervalRefrence = setInterval(myTimer, 1000);
+    isActive = !isActive; // Toggling the active mode
 
-      function myTimer() {
-        if (totalTime == 0) {
-          Timer.nextMode();
-          return 0;
-        }
-        totalTime -= 1;
-        timerMin.textContent = Timer.formatTime(Math.floor(totalTime / 60));
-        timerSec.textContent = Timer.formatTime(Math.floor(totalTime % 60));
-      }
+    if (isActive) {
+      intervalRefrence = setInterval(Timer.timerLogic, 1000); // Start the count
     } else {
-      clearInterval(intervalRefrence);
+      clearInterval(intervalRefrence); // Stop the count
+    }
+  }
+  // This method will do the counting down tasks
+  static timerLogic() {
+    // Checking if the time is up
+    if (totalTime == 0) {
+      Timer.nextMode(); // Go to the next mode
+    } else {
+      totalTime -= 1;
+      Timer.updateTheTimerInHtml();
     }
   }
 
@@ -52,6 +53,7 @@ class Timer {
     return String(time).padStart(2, "0");
   }
 
+  // This method will find out which mode should play at the moment
   static nextMode() {
     tracker += 1;
     switch (tracker) {
@@ -87,8 +89,13 @@ class Timer {
     isActive = false;
     clearInterval(intervalRefrence); // Clearing our interval counter
     totalTime = allModes[tracker].time; // Setting the right time
-    timerMin.textContent = Timer.formatTime(Math.floor(totalTime / 60)); // Updating our timer values
-    timerSec.textContent = Timer.formatTime(Math.floor(totalTime % 60)); // Updating our timer values
+    Timer.updateTheTimerInHtml(); // Update the html time
+  }
+
+  // Updating the values of our counter in the HTML
+  static updateTheTimerInHtml() {
+    timerMin.textContent = Timer.formatTime(Math.floor(totalTime / 60));
+    timerSec.textContent = Timer.formatTime(Math.floor(totalTime % 60));
   }
 
   setApp() {
