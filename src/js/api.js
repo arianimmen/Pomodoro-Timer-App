@@ -1,15 +1,15 @@
 const defaultSetting = [
   {
     mode: "focus",
-    time: 3,
+    time: 300,
   },
   {
     mode: "shortRest",
-    time: 5,
+    time: 500,
   },
   {
     mode: "longRest",
-    time: 6,
+    time: 600,
   },
   {
     mode: "Number of Sessions",
