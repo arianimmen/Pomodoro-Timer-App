@@ -12,6 +12,12 @@ const timerSec = document.querySelector(".main__timer__sec");
 // ------------------  Selecting the Play/Pause Icon  -------------------
 const playIcon = document.querySelector(".main__controls__start__icon");
 
+// --------------------   Sound Selecting -------------------------------
+const clickSound = document.querySelector(".click-sound");
+
+// -----------------  Different Modes Area Selecting ---------------------
+const maimModeText = document.querySelector(".main__mode__text");
+
 // -------------------- Default Globals Values -----------------------
 let totalTime = 0;
 let isActive = false;
@@ -27,11 +33,20 @@ let allModes = Storage.getSetting();
 
 class Timer {
   constructor() {
+    clickSound.load();
+
     startBtn.addEventListener("click", this.startCounter);
     nextBtn.addEventListener("click", Timer.nextModeManual);
+    document.addEventListener("keydown", (event) => {
+      if (event.code === "Space") {
+        // Trigger button click
+        this.startCounter();
+      }
+    });
   }
 
   setApp() {
+    currentModeIndex = 0;
     numberOfFocusSessions = 0;
     // Initialize the app with Focus Mode as the default
     Timer.changeToFocusMode();
@@ -40,18 +55,24 @@ class Timer {
   // ------------------ Different Modes Logic ---------------------------
   // Switch to Focus Mode and apply corresponding theme
   static changeToFocusMode() {
+    maimModeText.textContent = "Focus";
+
     Timer.setDefaultValues();
     ThemeChange.setRedTheme();
   }
 
   // Switch to Short Break and apply corresponding theme
   static changeToShortBreak() {
+    maimModeText.textContent = "Short Break";
+
     Timer.setDefaultValues();
     ThemeChange.setGreenTheme();
   }
 
   // Switch to Long Break and apply corresponding theme
   static changeToLongBreak() {
+    maimModeText.textContent = "Long Break";
+
     Timer.setDefaultValues();
     ThemeChange.setBlueTheme();
   }
@@ -59,6 +80,7 @@ class Timer {
 
   // Toggle the timer state (start/stop) and change the play/pause icon accordingly
   startCounter() {
+    clickSound.play();
     isActive = !isActive; // Toggling the active mode
 
     Timer.changePlayIcon(); // Changing the Play/Pause icon with the help of isActive
