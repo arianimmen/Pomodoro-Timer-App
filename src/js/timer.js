@@ -18,7 +18,7 @@ let isActive = false;
 let intervalReference = 0;
 let currentModeIndex = 0;
 let numberOfFocusSessions = 0;
-const allModes = Storage.getSetting();
+let allModes = Storage.getSetting();
 
 // ?-------------------------- Guide ------------------------------------
 // currentModeIndex = 0  ==> Focus Mode
@@ -32,8 +32,8 @@ class Timer {
   }
 
   setApp() {
+    numberOfFocusSessions = 0;
     // Initialize the app with Focus Mode as the default
-
     Timer.changeToFocusMode();
   }
 
@@ -101,8 +101,10 @@ class Timer {
 
   // Automatically switch to the next mode based on focus session count
   static nextModeAuto() {
-    const numberOfSessions = Number(Storage.getNumberOfFoucsSessions()); // Getting the number limit dynamicly from our Storage
+    const numberOfSessions = Number(Storage.getSetting()[3].number); // Getting the number limit dynamicly from our Storage
     // Checking if the user pass the required number to have a long break
+    console.log(numberOfSessions);
+
     if (numberOfFocusSessions >= numberOfSessions) {
       // Change to Long break
       currentModeIndex = 2;
@@ -146,6 +148,8 @@ class Timer {
   // Reset the timer and update display to match the current mode
   static setDefaultValues() {
     isActive = false;
+
+    allModes = Storage.getSetting(); // Getting all the setting from our Storage
     totalTime = allModes[currentModeIndex].time; // Setting the right time
 
     clearInterval(intervalReference); // Clearing our interval counter

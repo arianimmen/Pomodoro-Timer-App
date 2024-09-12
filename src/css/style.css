@@ -39,6 +39,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+body {
+  user-select: none;
+}
 
 /* *--------------------- Root ---------------------* */
 
@@ -226,7 +229,7 @@ body {
 }
 
 .setting__darkMode {
-  margin: 8px 0px;
+  margin: 16px 0px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -273,7 +276,8 @@ body {
 }
 
 .setting input {
-  width: 24px;
+  text-align: center;
+  width: 33px;
   padding: 4px;
   border-radius: 4px;
   border: 1px solid var(--color-shadow);
@@ -337,10 +341,6 @@ body {
     box-shadow: 0 0 21px var(--color-shadow);
   }
 
-  .setting__darkMode {
-    margin: 10px 0px;
-  }
-
   .setting__header {
     margin: 10px 0px 31px 0px;
   }
@@ -364,13 +364,13 @@ body {
   }
 
   .setting input {
-    width: 31px;
+    width: 35px;
     padding: 5px;
     border-radius: 5px;
   }
 
   .setting__fileds {
-    margin: 21px 0px;
+    margin: 16px 0px;
   }
 
   .setting__Statistics svg {
