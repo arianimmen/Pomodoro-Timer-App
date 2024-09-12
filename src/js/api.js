@@ -13,9 +13,15 @@ const defaultSetting = [
   },
 ];
 
+const defaultNumber = 4;
 class Storage {
   getSetting() {
     return JSON.parse(localStorage.getItem("timerSetting")) || defaultSetting;
+  }
+  getNumberOfFoucsSessions() {
+    return (
+      JSON.parse(localStorage.getItem("numberOfFocusSessions")) || defaultNumber
+    );
   }
 }
 
