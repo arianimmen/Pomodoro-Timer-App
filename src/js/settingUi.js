@@ -1,5 +1,6 @@
 import Storage from "./api.js";
 import Timer from "./timer.js";
+import ThemeChange from "./uiThemeChange.js";
 
 // ---------------------------  Modal ----------------------------
 const settingBtn = document.querySelector(".main__controls__setting");
@@ -12,10 +13,17 @@ const inputFocusSessions = document.querySelector(".input__focusSessions");
 const inputShortBreak = document.querySelector(".input__shortBreak");
 const inputLongBreak = document.querySelector(".input__longBreak");
 
+// ------------------------ Button -------------------------------
 const setting = document.querySelector(".setting");
+
+// ------------------------ Toggle -------------------------------
+const darkModeToggler = document.querySelector(".setting__darkMode__Toggle");
+
+let isDarkModeActive = false;
 
 class SettingUi {
   constructor() {
+    // Adding event Listeners
     settingBtn.addEventListener("click", () => {
       this.openSettingModal();
     });
@@ -28,6 +36,18 @@ class SettingUi {
     submitButton.addEventListener("click", () => {
       this.submitLogic();
     });
+    darkModeToggler.addEventListener("click", () => {
+      this.darkModeToggle();
+    });
+  }
+
+  setApp() {
+    this.updateInputsValue();
+  }
+
+  darkModeToggle() {
+    ThemeChange.setDarkMode();
+    Timer.setApp();
   }
 
   submitLogic() {
@@ -52,11 +72,9 @@ class SettingUi {
 
     Storage.saveSetting(newSetting); // Saving the new Data
 
+    Timer.setApp(); // Updating and restarting our Timer logic
+
     this.closeSettingModal(); // Closing the Modal
-
-    console.log("oka");
-
-    Timer.setApp();
   }
 
   // Opening the setting Modal
@@ -64,17 +82,13 @@ class SettingUi {
     setting.classList.remove("--hidden-setting");
     secttingBackground.classList.remove("--hidden-setting");
 
-    this.updateInputsValue();
+    this.updateInputsValue(); // Update our input Values
   }
 
   // Closing the setting Modal
   closeSettingModal() {
     setting.classList.add("--hidden-setting");
     secttingBackground.classList.add("--hidden-setting");
-  }
-
-  setApp() {
-    this.updateInputsValue();
   }
 
   updateInputsValue() {

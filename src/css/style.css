@@ -91,7 +91,7 @@ body {
   border-radius: 24px;
   padding: 7px 13px;
   border: 2px solid var(--color-primary-color);
-  width: 120px;
+  /* width: 120px; */
   justify-content: space-between;
 }
 
@@ -101,6 +101,7 @@ body {
 }
 
 .main__mode__text {
+  margin-left: 10px;
   font-weight: 600;
   font-size: 19px;
 }
@@ -162,7 +163,7 @@ body {
     border-radius: 17px;
     padding: 5px 9px;
     border: 1px solid var(--color-primary-color);
-    width: 76px;
+    /* width: 76px; */
   }
 
   .main__mode .icon {
@@ -240,6 +241,12 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.setting__header p{
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .setting__header svg {
@@ -254,25 +261,22 @@ body {
   justify-self: center;
   align-items: center;
   cursor: pointer;
-  width: 24px;
-  height: 13px;
+  width: 35px;
+  height: 20px;
   border-radius: 20px;
 
   background-color: var(--color-toggle-background);
 }
 
 .setting__darkMode__Toggle__inner {
-  margin: 3px 2px;
-  width: 9px;
-  height: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 14px;
+  height: 14px;
   border-radius: 100%;
   background-color: var(--color-modal-background);
-}
-
-.setting__darkMode__Toggle:hover {
-  .setting__darkMode__Toggle__inner {
-    margin-left: auto;
-  }
 }
 
 .setting input {
@@ -283,7 +287,7 @@ body {
   border: 1px solid var(--color-shadow);
   background-color: var(--color-modal-background);
   outline: none;
-  transition: all 0.2s;
+  transition: border 0.15s;
 }
 
 .setting input:focus {
@@ -349,18 +353,6 @@ body {
     padding: 3px;
     width: 17px;
     height: 17px;
-  }
-
-  .setting__darkMode__Toggle {
-    width: 31px;
-    height: 17px;
-    border-radius: 26px;
-  }
-
-  .setting__darkMode__Toggle__inner {
-    margin: 3px 2px;
-    width: 13px;
-    height: 13px;
   }
 
   .setting input {
@@ -519,4 +511,8 @@ body {
 .--blueFilter {
   filter: invert(14%) sepia(16%) saturate(264%) hue-rotate(220deg)
     brightness(95%) contrast(91%);
+}
+
+.--whiteFilter {
+  filter: invert(100%) sepia(0%) saturate(0%) brightness(111%) contrast(100%);
 }
