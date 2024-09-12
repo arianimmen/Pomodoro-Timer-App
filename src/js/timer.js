@@ -4,7 +4,6 @@ import ThemeChange from "./uiThemeChange.js";
 // -------------------- Selecting Media Controls ------------------------
 const startBtn = document.querySelector(".main__controls__start");
 const nextBtn = document.querySelector(".main__controls__next");
-const settingBtn = document.querySelector(".main__controls__setting");
 
 // -------------------- Selecting Timer Control -------------------------
 const timerMin = document.querySelector(".main__timer__min");
@@ -30,7 +29,6 @@ class Timer {
   constructor() {
     startBtn.addEventListener("click", this.startCounter);
     nextBtn.addEventListener("click", Timer.nextModeManual);
-    settingBtn.addEventListener("click", () => {});
   }
 
   setApp() {

@@ -11,6 +11,10 @@ const defaultSetting = [
     mode: "longRest",
     time: 6,
   },
+  {
+    mode: "Number of Sessions",
+    number: 4,
+  },
 ];
 
 const defaultNumber = 4;
@@ -22,6 +26,10 @@ class Storage {
     return (
       JSON.parse(localStorage.getItem("numberOfFocusSessions")) || defaultNumber
     );
+  }
+
+  saveSetting(data) {
+    localStorage.setItem("timerSetting", JSON.stringify(data));
   }
 }
 
