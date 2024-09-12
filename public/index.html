@@ -22,7 +22,7 @@
         <h2 class="main__mode__text">Focus</h2>
       </div>
       <div class="main__timer">
-        <p class="main__timer__min">25</p>
+        <p class="main__timer__min">00</p>
         <p class="main__timer__sec">00</p>
       </div>
       <div class="main__controls">
@@ -51,7 +51,7 @@
     <section class="setting --hidden-setting">
       <div class="setting__header">
         <p>Setting</p>
-        <svg class="icon">
+        <svg class="icon closeSettingIcon">
           <use xlink:href="../assets/images/sprite.svg#cancel"></use>
         </svg>
       </div>
@@ -66,38 +66,44 @@
       <div class="setting__Focus__length setting__fileds">
         <form>
           <p>Focus Length</p>
-          <input type="number" />
+          <input type="number" class="input__focus" />
         </form>
       </div>
 
       <div class="setting__untilLongBreaks setting__fileds">
         <form>
           <p>Pomodoros until long break</p>
-          <input type="number" />
+          <input type="number" class="input__focusSessions" />
         </form>
       </div>
 
       <div class="setting__shortBreakLength setting__fileds">
         <form>
           <p>Short break length</p>
-          <input type="number" />
+          <input type="number" class="input__shortBreak" />
         </form>
       </div>
 
       <div class="setting__LongBreakLength setting__fileds">
         <form>
           <p>Long break length</p>
-          <input type="number" />
+          <input type="number" class="input__longBreak" />
         </form>
       </div>
 
       <div class="setting__Statistics setting__fileds">
-        <svg class="icon">
-          <use xlink:href="../assets/images/sprite.svg#static"></use>
-        </svg>
-        <p>Statistics</p>
+        <div class="setting__Statistics__icon">
+          <svg class="icon">
+            <use xlink:href="../assets/images/sprite.svg#static"></use>
+          </svg>
+          <p>Statistics</p>
+        </div>
+        <button class="setting__Statistics__button">Submit</button>
+
       </div>
     </section>
+
+    <div class="setting-background --hidden-setting"></div>
     <!---------------------  Statistics Modal ------------------------->
     <section class="statistics-modal --hidden-statistics">
       <div class="statistics-modal__header">
