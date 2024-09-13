@@ -10,7 +10,7 @@ class ThemeChange {
   setGreenTheme() {
     // ------------------- Changing the root Colors ------------------------
     if (!darkModeIsActive) {
-      root.style.setProperty("--color-background", "#F1FFF5");
+      root.style.setProperty("--color-background", "#f5fef8");
       root.style.setProperty("--color-primary-color", "#15401D");
       root.style.setProperty("--color-primary-button", "#8CE7A1");
       root.style.setProperty("--color-secondary-button", "#DBFAE0");

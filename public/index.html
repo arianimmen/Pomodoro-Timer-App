@@ -107,7 +107,7 @@
     <section class="statistics-modal --hidden-statistics">
       <div class="statistics-modal__header">
         <h1>Statistics</h1>
-        <svg class="icon">
+        <svg class="icon statistics__cancel">
           <use xlink:href="../assets/images/sprite.svg#cancel"></use>
         </svg>
       </div>
@@ -161,6 +161,7 @@
           <p>S</p>
         </div>
       </div>
+      
       <div class="statistics-modal__info">
         <h2 class="statistics-modal__info__total">Total:</h2>
         <h2 class="statistics-modal__info__perDay">
@@ -169,9 +170,17 @@
       </div>
     </section>
 
+    <div class="statistics-background --hidden-statistics"></div>
+
+    <!--------------------------- Audios ------------------------------->
     <audio
       src="../assets/sounds/soft.wav"
       class="click-sound"
+      preload="auto"
+    ></audio>
+    <audio
+      src="../assets/sounds/endring.mp3"
+      class="end-sound"
       preload="auto"
     ></audio>
     <script type="module" src="../src/js/app.js"></script>
