@@ -75,6 +75,8 @@ class SettingUi {
     Timer.setApp(); // Updating and restarting our Timer logic
 
     this.closeSettingModal(); // Closing the Modal
+
+    Storage.resetTimes();
   }
 
   // Opening the setting Modal

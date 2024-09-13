@@ -14,6 +14,7 @@ const playIcon = document.querySelector(".main__controls__start__icon");
 
 // --------------------   Sound Selecting -------------------------------
 const clickSound = document.querySelector(".click-sound");
+const ringSound = document.querySelector(".end-sound");
 
 // -----------------  Different Modes Area Selecting ---------------------
 const maimModeText = document.querySelector(".main__mode__text");
@@ -108,7 +109,9 @@ class Timer {
     if (totalTime == 0) {
       if (currentModeIndex == 0) {
         numberOfFocusSessions += 1;
+        Storage.updateNumberOfFocus(1);
       }
+      ringSound.play();
       Timer.nextModeAuto(); // Go to the next mode
     } else {
       totalTime -= 1;
@@ -125,8 +128,6 @@ class Timer {
   static nextModeAuto() {
     const numberOfSessions = Number(Storage.getSetting()[3].number); // Getting the number limit dynamicly from our Storage
     // Checking if the user pass the required number to have a long break
-    console.log(numberOfSessions);
-
     if (numberOfFocusSessions >= numberOfSessions) {
       // Change to Long break
       currentModeIndex = 2;
